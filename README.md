@@ -40,3 +40,21 @@ A collection of shortcuts to streamline my development workflow on Windows. Don'
 | :--- | :--- |
 | `upy [script] [args]` | Runs a Python script using `uv run` (defaults to `main.py`). |
 | `Copy-Files` | Opens an interactive `fzf` menu to select multiple files, formats their content as Markdown, and copies it to the clipboard. (Requires fzf and bat to be installed) |
+
+## Dependencies
+
+#### Install a Nerd Font
+
+- A Nerd Font is required for prompt icons to display correctly.
+
+- Download and install a font like FiraCode Nerd Font.
+
+- Set your terminal's font to FiraCode Nerd Font Mono.
+
+#### The prompt and helper functions require Oh My Posh, fzf, and bat.
+
+- Open PowerShell and run this command to install all of them:
+
+```PowerShell
+winget install --id JanDeDobbeleer.OhMyPosh --scope user; winget install --id junegunn.fzf; winget install --id sharkdp.bat
+```
