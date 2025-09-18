@@ -7,7 +7,7 @@ A collection of shortcuts to streamline my development workflow on Windows. Don'
 
 1.  Clone the repository:
     ```powershell
-    git clone [https://github.com/parthjain18/dotfiles-windows.git](https://github.com/parthjain18/dotfiles-windows.git)
+    git clone https://github.com/ParthJain18/dotfile-windows
     ```
 2.  Open an **Administrator** PowerShell and create a symbolic link to your profile:
     ```powershell
