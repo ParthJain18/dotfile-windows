@@ -111,25 +111,21 @@
         $fileCount = $selectedPaths.Count
         $processedCount = 0
 
-        # 2. Process the array of paths and pipe the formatted strings to the clipboard
         $selectedPaths | ForEach-Object {
             $processedCount++
             $relativePath = $_.Replace("$PWD\", "")
             $extension = [System.IO.Path]::GetExtension($_).ToLower()
             
-            # Tweak 2: Safely get the language, defaulting to an empty string if not found
             $language = ""
             if ($langMap.ContainsKey($extension)) {
                 $language = $langMap[$extension]
             }
 
-            # Output the formatted block
             "File: $relativePath"
             "````$language"
             Get-Content -Raw $_
             "````"
 
-            # Tweak 1: Only add a separator if it's NOT the last file
             if ($processedCount -lt $fileCount) {
                 "---"
                 ""
@@ -139,4 +135,6 @@
         Write-Host "$fileCount file(s) formatted and copied to clipboard!" -ForegroundColor Green
     }
 
-    oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/stelbent-compact.minimal.omp.json" | Invoke-Expression
+$env:DOTFILES = 'C:\dev\powershell-scripts\dotfile-windows'
+[System.Environment]::SetEnvironmentVariable('DOTFILES', 'C:\dev\powershell-scripts\dotfile-windows', 'User')
+oh-my-posh init pwsh --config "$env:DOTFILES/themes/bubblesextra.omp.json" | Invoke-Expression
